@@ -1,0 +1,48 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "folder_exclude_patterns": ["build"]
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 4
+    },
+    "build_systems":
+    [
+        {
+            "name": "List files in build forlder",
+            "working_dir": "${project_path}",
+            "shell_cmd": "ls -al build/"
+        },
+        {
+            "name": "Generate CMakeFiles",
+            "working_dir": "${project_path}",
+            "shell_cmd": "mkdir -p build/ && cmake -H./src/ -B./build/"
+            // "shell_cmd": "mkdir -p build/ && cmake -G \"Sublime Text 2 - Unix Makefiles\" -H./ -B./build/",
+            // "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$"
+        },
+        {
+            "name": "Remove CMakeFiles",
+            "working_dir": "${project_path}",
+            "shell_cmd": "rm -rf build/"
+        },
+        {
+            "name": "make all",
+            "working_dir": "${project_path}",
+            "shell_cmd": "make -C build VERBOSE=1 all"
+        },
+        {
+            "name": "make clean",
+            "working_dir": "${project_path}",
+            "shell_cmd": "make -C build VERBOSE=1 clean",
+        },
+        {
+            "name": "run",
+            "working_dir": "${project_path}/build",
+            "shell_cmd": "./gstMain"
+        }
+    ]
+}
