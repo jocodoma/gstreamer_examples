@@ -1,13 +1,13 @@
 /*
- * Gst Appsink Appsrc Example
- * 
+ * Gstreamer 101 Hello World Example
+ *
  * References:
  * https://gstreamer.freedesktop.org/documentation/tutorials/basic/hello-world.html
  * https://gstreamer.freedesktop.org/documentation/tutorials/basic/short-cutting-the-pipeline.html
  *
  * Jocodoma
  * jocodoma@gmail.com
- * 
+ *
  */
 
 #include <gst/gst.h>
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     gst_init(&argc, &argv);
 
     // Build the pipeline
-    data.pipeline = gst_parse_launch("filesrc location=../heyJude.mp3 \
+    data.pipeline = gst_parse_launch("filesrc location=../../mp3Files/heyJude.mp3 \
         ! decodebin ! audioconvert ! autoaudiosink", &error);
 
     if(error)
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    // -v, --verbose, output status information and property notifications 
+    // -v, --verbose, output status information and property notifications
     g_signal_connect(data.pipeline, "deep_notify", G_CALLBACK(gst_object_default_deep_notify), NULL);
 
     // Instruct the bus to emit signals for each received message, and connect to the interesting signals
