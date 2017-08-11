@@ -9,3 +9,4 @@
 * sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 * sudo apt install libgstreamer1.0-dev
 * pkg-config --cflags --libs gstreamer-1.0
+
